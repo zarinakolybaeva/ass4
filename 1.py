@@ -2,14 +2,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load the dataset into a pandas DataFrame
 df = pd.read_csv('supermarket_sales.csv')
 
-# Display basic info about the dataset
+
 print(df.info())
 print(df.describe())
 
-# Add a total revenue column
+
 df['Total'] = (df['Unit price'] * df['Quantity']) + df['Tax 5%']
 print(df[['Invoice ID', 'Total']].head())
 
@@ -50,11 +49,9 @@ plt.title('Sales Distribution by Gender')
 plt.ylabel('')
 plt.show()
 
-# Correlation matrix
 correlation_matrix = data[['Unit price', 'Quantity', 'Tax 5%']].corr()
 print(correlation_matrix)
 
-# Top 5 selling product lines
 top_products = data['Product line'].value_counts().head(5)
 print(top_products)
 
